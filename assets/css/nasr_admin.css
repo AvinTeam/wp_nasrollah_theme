@@ -1,0 +1,104 @@
+.nasr-loader {
+  background-color: black;
+  position: fixed;
+  height: 100vh;
+  right: 0;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 100000;
+  opacity: 0.5;
+  display: none;
+}
+
+
+.column-status .successful {
+  color: green;
+
+}
+
+.column-status .progress {
+  color: orange;
+}
+
+.column-status .failed {
+  color: red;
+}
+
+
+.column-status .dashicons-yes-alt::before,
+.column-status .dashicons-warning::before,
+.column-status .dashicons-dismiss::before {
+  padding-left: 5px;
+}
+
+.nasr-table .column-created_at {
+  direction: ltr;
+}
+
+.nasr-table .column-nasr_update {
+  text-align: center;
+}
+
+.nasr-table #nasr_row,
+.nasr-table .column-ostan,
+.nasr-table #avatar {
+  width: 70px;
+}
+.nasr-table #status {
+  width: 90px;
+}
+.nasr-table .column-signature {
+  width: 110px;
+}
+th.column-nasr_row,
+th.column-avatar {
+  width: max-content;
+  max-width: 60px;
+}
+
+
+.button-error {
+  background: #b12222 !important;
+  border-color: #b12222 !important;
+}
+
+.button-error:hover {
+  background: #850f0f !important;
+  border-color: #850f0f !important;
+}
+
+
+
+
+@media screen and (max-width: 768px) {
+  .wp-list-table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+
+  .wp-list-table th,
+  .wp-list-table td {
+    text-align: right;
+  }
+
+  .wp-list-table th::before {
+    content: attr(data-label);
+    font-weight: bold;
+    display: inline-block;
+    margin-right: 10px;
+    color: #333;
+  }
+
+  .wp-list-table th,
+  .wp-list-table td {
+    padding: 10px;
+  }
+
+
+  .wp-list-table .is-expanded td:not(.hidden) {
+    overflow: unset;
+  }
+
+}

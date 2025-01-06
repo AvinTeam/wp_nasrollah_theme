@@ -1,0 +1,390 @@
+@font-face {
+    font-family: vazir;
+    src: url(../fonts/Vazir-Bold-FD.ttf);
+}
+
+.nasr-dn {
+    display: none;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: "vazir", sans-serif;
+    overflow: hidden;
+}
+
+.w3-row-padding img {
+    margin-bottom: 12px
+}
+
+.bgimg {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 100%;
+
+}
+
+label {
+    cursor: pointer;
+    filter: grayscale(100%);
+}
+
+label:hover {
+    filter: grayscale(0);
+    border: 2px dashed;
+    border-radius: 5px;
+}
+
+input[type="radio"]:checked+label {
+    filter: grayscale(0);
+    border: 2px dashed;
+    border-radius: 5px;
+}
+
+.footer {
+    background-color: #f8f9fa;
+    padding: 20px 0;
+    margin-top: 40px;
+    border-top: 1px solid #dee2e6;
+    z-index: 999;
+    position: relative;
+    box-shadow: -3px 11px 10px 11px #c8c8c8;
+}
+
+.logo {
+    color: #0d8a5f;
+    font-size: 16px;
+    text-align: right;
+    white-space: nowrap;
+}
+
+.share-buttonh {
+    background-color: #e8f5e9;
+    color: #0d8a5f;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    position: fixed;
+}
+
+.headertop {
+    height: 50px;
+    padding: 10px;
+    box-shadow: -1px 7px 10px -6px #c8c8c8;
+    width: 100%;
+    margin: 0px;
+    z-index: 999 !important;
+    position: relative;
+}
+
+.counter-box {
+    position: relative;
+    background-color: #F7E217;
+    border-radius: 12px;
+    padding: 20px;
+    margin: 20px 0;
+    overflow: hidden;
+}
+
+.counter-box .d-flex {
+    position: relative;
+    z-index: 1;
+}
+
+.counter-bg-image {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 220px;
+    height: auto;
+    opacity: 0.3;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.counter-text {
+    font-size: 2.2rem;
+    font-weight: normal;
+
+    color: #125721;
+}
+
+.counter-number {
+    font-size: 5.5rem;
+    font-weight: bold;
+    color: #2c3e50;
+
+    color: #125721 !important;
+
+}
+
+.avatar-tabs {
+    max-width: 100%;
+    margin: 20px auto;
+
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.tabs {
+    display: flex;
+
+}
+
+.tab-btn {
+    flex: 1;
+    padding: 10px;
+    text-align: center;
+    cursor: pointer;
+    background-color: #f9f9f9;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background-color 0.3s, border-bottom 0.3s;
+    border: 1px solid #dfdfdf;
+    border-radius: 20px;
+    margin: 8px;
+}
+
+.tab-btn.active {
+    border-top: 2px solid #059500;
+    border-right: 2px solid #059500;
+    border-left: 2px solid #059500;
+    border-radius: 15px 15px 0 0;
+    border-bottom: 2px solid #fff;
+    margin-bottom: -2px;
+    position: relative;
+    z-index: 1;
+    margin-right: 0px;
+    margin-left: 0px;
+
+}
+
+.tab-content {
+    display: none;
+    padding: 20px;
+    background-color: #fff;
+}
+
+.tab-content.active {
+    display: block;
+    border: 2px solid #059500;
+    border-radius: 0 0 15px 15px;
+}
+
+.avatars {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.avatars label {
+    display: block;
+    cursor: pointer;
+    border: 2px solid transparent;
+    padding: 5px;
+    border-radius: 8px;
+    transition: border-color 0.3s;
+}
+
+.avatars label:hover {
+    border-color: #2c3e50;
+}
+
+.fixed-height {
+    height: 260px;
+    /* ارتفاع ثابت */
+    overflow: hidden;
+    /* جلوگیری از بیرون زدن محتوا */
+}
+
+.avatars img {
+    width: 50px;
+    height: 63px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+@media (max-width: 767.98px) {
+    .share-buttonh {
+        display: none !important;
+    }
+
+    .counter-bg-image {
+        display: none;
+    }
+
+    .nasr_count {
+        flex-direction: column-reverse;
+    }
+}
+
+.share-button {
+    width: 280px;
+    height: 50px;
+    background: #dfe6e9;
+    border-radius: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+    transition: 0.3s linear;
+    margin: 0 auto;
+}
+
+.share-button:hover {
+    transform: scale(1.1);
+}
+
+.share-button span {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #151d4b;
+    color: #f1f1f1;
+    text-align: center;
+    line-height: 50px;
+    z-index: 999;
+    transition: 0.6s linear;
+    border-radius: 40px;
+}
+
+.share-button:hover span {
+    transform: translateX(-100%);
+    transition-delay: 0.3s;
+}
+
+.share-button a {
+    flex: 1;
+    font-size: 26px;
+    color: #2d3436;
+    text-align: center;
+    transform: translateX(-100%);
+    opacity: 0;
+    transition: 0.3s linear;
+}
+
+.share-button:hover a {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.share-button a:nth-of-type(1) {
+    transition-delay: 1s;
+}
+
+.share-button a:nth-of-type(2) {
+    transition-delay: 0.8s;
+}
+
+.share-button a:nth-of-type(3) {
+    transition-delay: 0.6s;
+}
+
+.share-button a:nth-of-type(4) {
+    transition-delay: 0.4s;
+}
+
+
+
+.nasr_count {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    justify-content: space-around;
+}
+
+#signatureCanvas ,.nasr_textarea{
+    border: 1px solid #d7d7d7;
+    touch-action: none;
+    user-select: none;
+    border-radius: 14px;
+    width: 100%;
+    height: 250px;
+}
+
+.signatureBx {
+    position: relative;
+}
+
+.signatureBx button {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    margin-bottom: 10px;
+    padding: 9px;
+    width: 40px;
+    height: 40px;
+    background-color: #F7E217;
+    border-color: #e2cd12;
+
+
+}
+
+.signatureBx button svg {
+    width: 100%;
+    height: 100%;
+
+}
+
+.w3-green,
+.w3-hover-green:hover {
+    background-color: #197B30 !important;
+}
+
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.nasr_refresh {
+    width: 30px;
+}
+
+
+.nasr_refresh_click {
+    animation: rotate 5s linear infinite;
+}
+
+
+.nasr_users {
+    direction: rtl;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.nasr_user_list {
+    font-size: 22px;
+    padding-bottom: 11px;
+    display: flex;
+    width: 100%;
+    gap: 5px;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.nasr_username span{
+    font-size: 12px;
+}
+.nasr_username p {
+    font-size: 16px;
+}
