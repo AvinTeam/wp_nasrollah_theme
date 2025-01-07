@@ -42,8 +42,8 @@ function mph_admin_menu(string $context): void
 
     $setting_suffix = add_submenu_page(
         'nasr',
-        'تنظیمات',
-        'تنظیمات',
+        'تنظیمات کلی',
+        'تنظیمات کلی',
         'manage_options',
         'setting_panels',
         'setting_panels',
@@ -73,10 +73,27 @@ function mph_admin_menu(string $context): void
         require_once NASR_VIEWS . 'setting_sms_panels.php';
 
     }
+    $form_panels_suffix = add_submenu_page(
+        'nasr',
+        'تنظیمات فرم',
+        'تنظیمات فرم',
+        'manage_options',
+        'form_panels',
+        'nasr_form_panels',
+    );
+
+    function nasr_form_panels()
+    {
+        $nasr_option = nasr_start_working();
+
+        require_once NASR_VIEWS . 'setting_form_panels.php';
+
+    }
 
     add_action('load-' . $menu_suffix, 'nasr__list');
     add_action('load-' . $setting_suffix, 'nasr__submit');
     add_action('load-' . $sms_panels_suffix, 'nasr__submit');
+    add_action('load-' . $form_panels_suffix, 'nasr__submit');
 
     function nasr__list()
     {
@@ -113,6 +130,17 @@ function mph_admin_menu(string $context): void
     {
 
         if (isset($_POST[ 'nasr_act' ]) && $_POST[ 'nasr_act' ] == 'nasr__submit') {
+
+            if (isset($_POST[ 'form' ])) {
+
+                $_POST[ 'form' ][ 'text' ] = wp_kses_post(wp_unslash(nl2br($_POST[ 'form' ][ 'text' ])));
+                $_POST[ 'form' ][ 'ostan' ] = (isset($_POST[ 'form' ][ 'ostan' ])) ? true : false;
+                $_POST[ 'form' ][ 'ostan_required' ] = (isset($_POST[ 'form' ][ 'ostan_required' ])) ? true : false;
+                $_POST[ 'form' ][ 'avatar' ] = (isset($_POST[ 'form' ][ 'avatar' ])) ? true : false;
+                $_POST[ 'form' ][ 'description' ] = (isset($_POST[ 'form' ][ 'description' ])) ? true : false;
+                $_POST[ 'form' ][ 'signature' ] = (isset($_POST[ 'form' ][ 'signature' ])) ? true : false;
+
+            }
 
             if (wp_verify_nonce($_POST[ '_wpnonce' ], 'nasr_nonce' . get_current_user_id())) {
                 if (isset($_POST[ 'tsms' ])) {

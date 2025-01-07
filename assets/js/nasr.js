@@ -209,6 +209,21 @@ document.querySelector('form.contact-form').addEventListener('submit', function 
     let Comment = document.querySelector('input[name="Comment"]').value.trim();
 
 
+
+
+    const userOstan = document.getElementById("user_ostan");
+
+    if (userOstan.hasAttribute("required")) {
+        if (userOstan.value == 0) {
+            error_massage = "لطفاً یک استان انتخاب کنید!";
+            error = 1;
+        }
+    }
+
+
+
+
+
     let wpnonce = $('#_wpnonce').val();
 
 
@@ -451,7 +466,7 @@ function loadSignature(type = "") {
             }
         },
         success: function (response) {
-            response =  response.data;
+            response = response.data;
             if (response.end === 'end') {
                 $('#loadmore').addClass('nasr-dn');
             } else {
@@ -462,29 +477,47 @@ function loadSignature(type = "") {
                 response.results.forEach(item => {
 
                     let description = '';
+                    let signature = '';  
+                    let avatar = '';  
+                    
 
-                    if (item.description != null) {
+
+    
+                    if (item.description != null && !$('#nasr-form-description').hasClass("nasr-dn")) {
                         description = `<p class="" style="direction:rtl; word-wrap: break-word;overflow: hidden; text-align: justify; font-size: 12px;">
                                             ${item.description != null ? item.description : ''}
                                         </p>`;
 
                     }
+    
+                    if (!$('#nasr-form-signature').hasClass("nasr-dn")) {
+                        signature = `<p class="" style="direction:rtl; word-wrap: break-word;overflow: hidden; text-align: center;">
+                                            <img src="${item.signature}" style="border-radius: 10px;height: 100px;object-fit: cover;">
+                                        </p>`;
+
+                    }
+                    
+    
+                    if (!$('#nasr-form-avatar').hasClass("nasr-dn")) {
+                        avatar = `<img src="/wp-content/themes/nasrollah/assets/image/avatar/${item.avatar}.jpg"
+                                                class="w3-circle" style="height:50px;margin: 10px;">`;
+
+                    }
+                    
 
                     const label = $(`
                                 <div style="direction:rtl; float: right; height: auto;" class="w3-col l4 m6 s12 w3-padding fixed-height">
                                     <div class="w3-card w3-round-large w3-border w3-border-gray w3-padding">
                                         <h4 class=" nasr_users " >
-                                            <img src="/wp-content/themes/nasrollah/assets/image/avatar/${item.avatar}.jpg"
-                                                class="w3-circle" style="height:50px;margin: 10px;">
+                                        ${avatar}
                                             <div class="nasr_username">
                                                 <p>${item.full_name}</p>
                                                 <span>${maskMobileNumber(item.mobile)}</span>
                                             </div>
                                         </h4>
                                         ${description}
-                                        <p class="" style="direction:rtl; word-wrap: break-word;overflow: hidden; text-align: center;">
-                                            <img src="${item.signature}" style="border-radius: 10px;height: 100px;object-fit: cover;">
-                                        </p>
+                                        ${signature}
+ 
                                     </div>
                                 </div>
                         `);

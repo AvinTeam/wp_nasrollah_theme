@@ -4,12 +4,12 @@
 
 function nasr_panel_js($path)
 {
-    return NASR_JS . $path;
+    return NASR_JS . $path . '?ver=' . NASR_VERSION;
 }
 
 function nasr_panel_css($path)
 {
-    return NASR_CSS . $path;
+    return NASR_CSS . $path . '?ver=' . NASR_VERSION;
 }
 
 function nasr_panel_image($path)
@@ -61,6 +61,7 @@ function nasr_start_working(): array
                 'version' => NASR_VERSION,
                 'tsms' => (isset($nasr_option[ 'tsms' ])) ? $nasr_option[ 'tsms' ] : [ 'username' => '', 'password' => '', 'number' => '' ],
                 'ghasedaksms' => (isset($nasr_option[ 'ghasedaksms' ])) ? $nasr_option[ 'ghasedaksms' ] : [ 'ApiKey' => '', 'number' => '' ],
+                'form' => (isset($nasr_option[ 'form' ])) ? $nasr_option[ 'form' ] : [ 'text' => '', 'ostan' => true, 'ostan_required' => false, 'avatar' => true, 'description' => true, 'signature' => true ],
                 'sms_text_otp' => (isset($nasr_option[ 'sms_text_otp' ])) ? $nasr_option[ 'sms_text_otp' ] : 'کد تأیید شما: %otp%',
                 'set_timer' => (isset($nasr_option[ 'set_timer' ])) ? $nasr_option[ 'set_timer' ] : 1,
                 'set_code_count' => (isset($nasr_option[ 'set_code_count' ])) ? $nasr_option[ 'set_code_count' ] : 4,
@@ -74,16 +75,6 @@ function nasr_start_working(): array
              ]
 
         );
-
-        // global $wpdb;
-        // $tabel_nasr_row = $wpdb->prefix . 'nasr_row';
-
-        // $sql = "ALTER TABLE `$tabel_nasr_row` ADD `type` VARCHAR(20) NOT NULL AFTER `status`;";
-
-        // require_once ABSPATH . 'wp-admin/includes/upgrade.php';
-
-        // dbDelta($sql);
-
     }
 
     return get_option('nasr_option');
@@ -99,6 +90,7 @@ function nasr_update_option($data)
         'version' => NASR_VERSION,
         'tsms' => (isset($data[ 'tsms' ])) ? $data[ 'tsms' ] : $nasr_option[ 'tsms' ],
         'ghasedaksms' => (isset($data[ 'ghasedaksms' ])) ? $data[ 'ghasedaksms' ] : $nasr_option[ 'ghasedaksms' ],
+        'form' => (isset($data[ 'form' ])) ? $data[ 'form' ] : $nasr_option[ 'form' ],
         'set_timer' => (isset($data[ 'set_timer' ])) ? absint($data[ 'set_timer' ]) : $nasr_option[ 'set_timer' ],
         'set_code_count' => (isset($data[ 'set_code_count' ])) ? absint($data[ 'set_code_count' ]) : $nasr_option[ 'set_code_count' ],
         'show_signature' => (isset($data[ 'show_signature' ])) ? $data[ 'show_signature' ] : $nasr_option[ 'show_signature' ],

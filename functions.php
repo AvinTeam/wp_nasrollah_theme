@@ -1,7 +1,7 @@
 <?php
 
 (defined('ABSPATH')) || exit;
-define('NASR_VERSION', '1.5.3');
+define('NASR_VERSION', '1.6.1');
 
 define('NASR_PATH', get_template_directory() . "/");
 define('NASR_INCLUDES', NASR_PATH . 'includes/');
@@ -28,7 +28,6 @@ require_once NASR_INCLUDES . '/cron.php';
 
 $nasr_option = nasr_start_working();
 
-
 if (is_admin()) {
     require_once NASR_CLASS . '/List_Table.php';
 
@@ -36,6 +35,33 @@ if (is_admin()) {
     require_once NASR_INCLUDES . '/install.php';
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
